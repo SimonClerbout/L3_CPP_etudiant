@@ -1,0 +1,57 @@
+#include <iostream>
+#include "Liste.hpp"
+
+Noeud::Noeud(int valeur, Noeud* suivant){
+
+  valeur = valeur;
+  suivant = suivant;
+
+}
+
+Liste::Liste(){
+
+  tete = nullptr;
+
+};
+
+
+void Liste::ajouterDevant(int valeur){
+
+  Noeud* n = new Noeud;
+  n->valeur = valeur;
+  n->suivant = tete->suivant;
+  tete = n;
+
+}
+
+int Liste::getTaille() const{
+
+  int cmp = 0;
+  Noeud* n = tete;
+  while(n != nullptr){
+
+    cmp = cmp + 1;
+    n = n->suivant;
+
+  }
+
+  return cmp;
+
+}
+
+int Liste::getElement(int indice) const{
+
+  int cmp = 0;
+  Noeud* n = tete;
+  while(cmp != indice){
+
+    cmp = cmp + 1;
+    n = n->suivant;
+
+  }
+
+  return n->valeur;
+
+}
+
+

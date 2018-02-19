@@ -1,0 +1,24 @@
+#include <iostream>
+
+struct A{
+
+    int x;
+
+}
+
+int main(){
+
+  A a1, a2;
+  A* pa;
+  int* px;
+  a1.x = 0; // initialie la valeur de l'objet
+
+  a2 = a1; //copie l'ojet a1 dans l'objet a2
+  pa = &a1; // prend la référence de a1
+  pa->x = 1; // modifie la valeur référencée par a1
+  px = &a2;
+  px->x = 2;
+  
+  return 0;
+  
+}
