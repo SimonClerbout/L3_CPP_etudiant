@@ -1,0 +1,10 @@
+#include <iostream>
+#include "Location.hpp"
+
+
+void Location::afficherLocation() const{
+
+  std::cout << "id Client : " << _idClient << std::endl;
+  std::cout << "id Produit : " << _idProduit << std::endl; 
+  
+}

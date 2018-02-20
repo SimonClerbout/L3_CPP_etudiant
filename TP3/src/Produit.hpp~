@@ -1,0 +1,20 @@
+#ifndef PRODUIT.HPP
+#define PRODUIT.HPP
+
+#include <string>
+
+class Produit{
+private :
+  int _id;
+  std::string _description;
+
+public :
+  Produit(int id, const std::string& description) :
+    _id(id), _description(description)
+  {}
+  int getId() const;
+  const std::string& getDescription() const;
+  void afficherProduit() const; 
+};
+
+#endif

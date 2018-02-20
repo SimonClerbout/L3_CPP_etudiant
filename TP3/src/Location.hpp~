@@ -1,0 +1,15 @@
+#ifndef LOCATION.HPP
+#define LOCATION.HPP
+
+
+struct Location{
+
+  int _idClient;
+  int _idProduit;
+  Location(int idClient, int idProduit) : _idClient(idClient), _idProduit(idProduit)
+  {}
+  void afficherLocation() const;
+
+};
+
+#endif

@@ -1,0 +1,16 @@
+#include <iostream>
+#include "Magasin.hpp"
+
+
+Magasin::Magasin(){
+
+  _idCourantProduit = 0;
+  _idCourantClient = 0;
+
+}
+
+int Magasin::nbClients() const{
+
+  
+  
+}

@@ -1,0 +1,15 @@
+#include <iostream>
+#include "Magasin.hpp"
+
+
+int Magasin::nbClients() const{
+
+  return _idCourantClient;
+  
+}
+
+void Magasin::ajouterClient(const std::string& nom){
+
+  
+
+}
