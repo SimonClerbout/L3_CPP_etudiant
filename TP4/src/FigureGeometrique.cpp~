@@ -1,0 +1,8 @@
+#include "FigureGeometrique.hpp"
+#include <iostream>
+
+const Couleur& FigureGeometrique::getCouleur() {
+
+  return _couleur;
+
+}

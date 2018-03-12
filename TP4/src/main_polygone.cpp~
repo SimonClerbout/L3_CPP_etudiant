@@ -1,0 +1,15 @@
+#include <iostream>
+
+#include "PolygoneRegulier.hpp"
+#include "FigureGeometrique.hpp"
+#include "Ligne.hpp"
+#include "Couleur.hpp"
+#include "Point.hpp"
+
+int main(){
+  
+  Ligne l;
+
+  l.afficher();
+
+}
