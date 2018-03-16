@@ -1,0 +1,10 @@
+#include <iostream>
+
+int main(int argc, char ** argv){
+
+  GTK::Main kit(argc, argv);
+  GTK::Window w;
+  w.show_all();
+  kit.run(w);
+
+}
