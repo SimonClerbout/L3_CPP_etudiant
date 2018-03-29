@@ -1,0 +1,27 @@
+#ifndef LIVRE_HPP
+#define LIVRE_HPP
+
+#include <string>
+
+class Livre {
+
+private :
+  std::string _titre;
+  std::string _auteur;
+  int _annee;
+
+public :
+  Livre();
+  Livre(const std::string& titre, const std::string& auteur, int annee);
+  const std::string& getTitre() const;
+  const std::string& getAuteur() const;
+  int getAnnee() const;
+  virtual bool operator<(const Livre& x) const;
+  virtual bool operator()(const Livre& x, const Livre& y) const;
+  friend bool operator==(const& Livre a, const& Livre b) const;
+  friend ostream& operator<<(std::ostream& o, const Livre& l);
+  friend istream& operator>>(std::istream& i, const Livre& l);
+  
+};
+
+#endif;

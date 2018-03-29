@@ -15,6 +15,6 @@ add_executable( main_test.out src/main_test.cpp
    src/Livre_test.cpp )
 target_link_libraries( main_test.out ${PKG_LIBRARIES} )
 
-add_executable( main_bibli.out src/main_bibli.cpp src/Bibliotheque.cpp 
+add_executable( main_bibli src/main_bibli.cpp src/Bibliotheque.cpp 
    src/Livre.cpp )
-target_link_libraries( main_bibli.out ${PKG_LIBRARIES} )
+target_link_libraries( main_bibli ${PKG_LIBRARIES} )

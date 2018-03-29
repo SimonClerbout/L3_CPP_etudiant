@@ -1,0 +1,93 @@
+#include "Livre,hpp"
+
+Livre::Livre(){
+
+  _auteur(""), _titre(""), _annee();
+
+}
+
+Livre::Livre(const std::string& titre, const std::string& auteur, int annee) : _titre(titre), _auteur(auteur), _annee(annee) {
+
+  try{
+
+    if((titre.find(";")!=std::string::npos) || (auteur.find(";")!=std::string::npos)){
+
+      throw std::string("Point virgule détecté");
+      
+    }
+
+     if((titre.find("\n")!=std::string::npos) || (auteur.find("\n")!=std::string::npos)){
+
+      throw std::string("Retour chariot détecté");
+      
+    }
+
+  }catch(string const& erreur){
+
+    std::cerr << ereur << std::endl;
+
+  }
+
+}
+
+const std::string& Livre::getTitre() const{
+
+  return _titre;
+
+}
+
+const std::string& Livre::getAuteur() const{
+
+  return _auteur;
+
+}
+
+int Livre::getAnnee() const{
+
+  return _annee;
+
+}
+
+bool Livre::operator<(const Livre& x) const{
+
+  if(_auteur < x._auteur){
+
+    return true;
+
+  }
+  else if((auteur == x._auteur) && (_titre < x._titre)){
+
+      return true;
+
+  }
+
+  return false;
+
+}
+
+bool Livre::operator==(const& Livre a, const& Livre b) const{
+
+  return((a._titre==b._titre) and (a._auteur==b._auteur) and (a._annee==b._annee));
+  
+}
+
+ostream& Livre::operator<<(std::ostream& o, const Livre& l){
+
+  o << l.getTitre() << ";" << l.getAuteur() << ";" << l.getAnnee();
+
+}
+
+istream& Livre::operator>>(std::istream& i, const Livre& l){
+
+  std::getline(i, l._titre);
+  std::getline(i, l._auteur);
+  std::getline(i, l._annee);
+
+}
+
+bool Livre::operator()(const Livre& x, const Livre& y) const{
+
+  return x < y;
+
+}
+
