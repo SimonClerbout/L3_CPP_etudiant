@@ -1,0 +1,80 @@
+#include "Image.hpp"
+#include <cmath>
+#include <fstream>
+
+
+Image::Image(int largeur, int hauteur) : _largeur(largeur), _hauteur(hauteur){}
+
+int Image::getLargeur() const{
+
+  return _largeur;
+
+}
+
+int Image::getHauteur() const{
+
+  return _hauteur;
+
+}
+
+/*
+int Image::getPixel(int i, int j) const {
+
+  return _pixels[_largeur*i+j];
+
+}
+void Image::setPixel(int i, int j, int couleur){
+
+  _pixels[_lageur*i+j] = couleur;
+
+}*/
+
+int Image::getPixel(const int& i, const int& j) const {
+  
+  return _pixels[_largeur*i+j];
+  
+}
+
+void Image::setPixel(const int& i, const int& j, const int& couleur){
+  
+  _pixels[_largeur*i+j] = couleur;
+  
+}
+
+Image::~Image(){
+  
+  delete[] _pixels;
+  
+}
+
+void Image::remplir(Image& img){
+
+  for(int i = 0; i < img.getHauteur(); i++){
+    for(int j = 0; j < img.getLargeur(); j++){
+          double cosVal = ((std::cos((float)j / 10) + 1)/2)*255;
+          img.getPixel(i,j) = std::floor(cosVal);
+    }
+  }
+
+}
+
+void ecrirePnm(const Image& img, const std::string& nomFichier){
+
+  std::ofstream fic(nomFichier, std::ofstream::out);
+  if(!fic){
+    throw std::string("erreur : impossible d'écrire le fichier");
+  }
+    
+  const int largeur = img.getLargeur();
+  const int hauteur = img.getHauteur();
+
+  fic << "P2" << std::endl;
+  fic << largeur << " " << hauteur << std::endl;
+  fic << "255" << std::endl;
+  for(int i = 0; i < hauteur; i++){
+    for(int j = 0; j < largeur; j++){
+      fic << img.getPixel(i, j) << " ";           
+    }
+    fic << std::endl;
+  }
+}

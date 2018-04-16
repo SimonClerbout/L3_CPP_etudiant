@@ -1,0 +1,9 @@
+#include "Image.hpp"
+#include <iostream>
+
+
+int main(){
+
+  std::cout << "Bonjour" << std::endl;
+
+}
