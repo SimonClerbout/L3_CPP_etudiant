@@ -6,7 +6,11 @@
 #include <sstream>
 
 Controleur::Controleur(int argc, char ** argv) {
-    _vues.push_back(std::make_unique<VueGraphique>(argc, argv, *this));
+  //chargerInventaire();
+  _vues.push_back(std::make_unique<VueGraphique>(argc, argv, *this));
+  _vues.push_back(std::make_unique<VueConsole>(*this));
+   
+								       
 }
 
 void Controleur::run() {
@@ -14,4 +18,26 @@ void Controleur::run() {
         v->run();
 }
 
+void Controleur::actualiser(){
+  std::cout << "test" << std::endl;
+    for (auto & v : _vues)
+        v->actualiser();
 
+
+}
+
+std::string Controleur::getTexte(){
+
+  std::ostringstream str;
+  str << _inventaire;
+  return str.str();
+
+}
+
+void Controleur::chargerInventaire(const std::string & nomFichier){
+
+  _inventaire._bouteilles.push_back(Bouteille{"La Chouffe", "2016-11-08", 0.75});
+  actualiser();
+
+
+}

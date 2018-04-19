@@ -6,7 +6,6 @@
 
 #include <memory>
 #include <vector>
-#include <string>
 
 // Controleur : fait le lien entre la Vue et le Modèle. Point d'entrée de
 // l'application. Utilisation : construire un Controleur puis run().
@@ -17,9 +16,7 @@ class Controleur {
 
     public:
         Controleur(int argc, char ** argv);
-  std::string getTexte();
-  void actualiser();
-  void chargerInventaire(const std::string & nomFichier);
+
         // Lance l'application.
         void run();
 };

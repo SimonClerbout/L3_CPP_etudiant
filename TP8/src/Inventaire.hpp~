@@ -9,9 +9,6 @@
 // Modèle : inventaire de bouteilles.
 struct Inventaire {
     std::vector<Bouteille> _bouteilles;
-
 };
-
-std::ostream& operator<<(std::ostream& s, const Inventaire inv);
 
 #endif
